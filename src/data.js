@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Title from './title';
+import Title from './components/title';
 import axios from 'axios';
-import Explanation from './explanation';
-import Img from './url';
-import Date from './date'
+import Explanation from './components/explanation';
+import Img from './components/img';
+import Date from './components/date'
+import Logo from './components/logo'
 
 
 export default function Data (){
@@ -23,9 +24,10 @@ export default function Data (){
 
     return (
         <div className='container'>
+            <Logo />
             <Title title ={data.title}/>
             <Img img={data.img} />
-            <Date date ={data.date}/>
+            <Date date ={data.date}/> 
             <Explanation explanation ={data.explanation}/>
         </div>
     );

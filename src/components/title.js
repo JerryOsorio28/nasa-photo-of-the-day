@@ -1,10 +1,15 @@
 import React from 'react';
+import styled from'styled-components';
+
+const Header = styled.h1`
+    border: 1px solid red;
+`;
 
 
 export default function Title ({ title }) {
     return (
-        <div className='title'>
-            <h1>{ title }</h1>
-        </div>
+        <Header>
+            <h1>{ title}</h1>
+        </Header>
     );
 }
