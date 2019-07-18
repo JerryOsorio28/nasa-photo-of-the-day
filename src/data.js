@@ -4,7 +4,13 @@ import axios from 'axios';
 import Explanation from './components/explanation';
 import Img from './components/img';
 import Date from './components/date'
-import Logo from './components/logo'
+import Copyright from './components/copyright'
+import styled from 'styled-components';
+
+const Container = styled.div `
+    background-color: gray;
+`;
+
 
 
 export default function Data (){
@@ -13,22 +19,21 @@ export default function Data (){
 
     useEffect(() => {
         axios
-          .get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2019-07-15`)
+          .get(`https://api.nasa.gov/planetary/apod?api_key=ZpZCz9HVkVHMiM10NA7mDobEgbgx89Rn6tgK1xfb`)
           .then(object => {
             const item = object.data;
-            console.log(object)
             setData(item);
           });
 
       }, []);
 
     return (
-        <div className='container'>
-            <Logo />
-            <Title title ={data.title}/>
+        <Container>
             <Img img={data.img} />
-            <Date date ={data.date}/> 
+            <Title title ={data.title}/>
             <Explanation explanation ={data.explanation}/>
-        </div>
+            <Date date ={data.date}/>
+            <Copyright copyright={data.copyright} />
+        </Container>
     );
 }
